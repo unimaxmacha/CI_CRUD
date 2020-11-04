@@ -13,7 +13,8 @@
 			$this->load->view('fileupload/uploadFile', array('error' => ' '));
 		}
 
-
+		// Take reference from 
+		// https://stackoverflow.com/questions/16190381/how-to-upload-image-path-and-name-to-database-codeigniter
 		public function do_upload()
 		{
 			$config['upload_path'] 		= './uploads/';
@@ -21,6 +22,8 @@
 			$config['max_size']			= 2000;
 			$config['max_width']		= 2048;
 			$config['max_height']		= 1024;
+			$config['overwrite'] 		= TRUE;
+    		$config['remove_spaces'] 	= TRUE;
 
 			$this->load->library('upload', $config);
 
